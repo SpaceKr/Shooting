@@ -42,7 +42,11 @@ public class SpriteAnimation : MonoBehaviour
     {
         this.sprite = sprite;
         this.delay = delay;
+        if (sr == null)
+        {
+            sr = GetComponent<SpriteRenderer>();
+        }
         sr.sprite = this.sprite[0];
-        animindex = 1;
+        animindex = 0;
     }
 }

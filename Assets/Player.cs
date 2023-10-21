@@ -15,7 +15,11 @@ public class Player : MonoBehaviour
     [SerializeField] private List<Sprite> leftSprite;
     [SerializeField] private List<Sprite> rightSprite;
     [SerializeField] private float speed;
+    [SerializeField] private Transform bulletParent;
+    [SerializeField] private PBullet bullet;
+    [SerializeField] private float fireBulletDelayTime;
     private Direction dir = Direction.Center;
+    private float fireDelayTimer;
     void Start()
     {
         GetComponent<SpriteAnimation>().SetSprite(normalSprite, 0.1f);
@@ -24,6 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Fire();
         float x = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed; ;
         float y = Input.GetAxisRaw("Vertical") * Time.deltaTime * speed;
 
@@ -46,5 +51,26 @@ public class Player : MonoBehaviour
         }
         //transform.Translate(new Vector3(x, y, 0f) * Time.deltaTime * 3f);
 
+    }
+    void Fire()
+    {
+        fireDelayTimer += Time.deltaTime;
+        if (Input.GetMouseButton(0))
+        {
+            if (fireDelayTimer > fireBulletDelayTime)
+            {
+                fireDelayTimer = 0;
+                PBullet b = Instantiate(bullet, transform.GetChild(0));
+                b.transform.SetParent(bulletParent);
+            }
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.GetComponent<EBullet>())
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
