@@ -6,7 +6,7 @@ public class PBullet : MonoBehaviour
 
 {
     // Start is called before the first frame update
-    public float Power { get; set; }
+    public float Power { get; set; } = 20;
     void Start()
     {
         Destroy(gameObject, 5f);

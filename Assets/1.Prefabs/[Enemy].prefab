@@ -132,12 +132,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99bf9e663598c845a6bd76fe85ea4a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p: {fileID: 0}
   normalSprite:
   - {fileID: 8414478535512612329, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
   hitSprite:
   - {fileID: 4326287474489854147, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
+  deadSprite:
+  - {fileID: 5986030973748356752, guid: 54eba9c24be4c474180c23dcccfd6630, type: 3}
+  - {fileID: -5600206312213581617, guid: 54eba9c24be4c474180c23dcccfd6630, type: 3}
+  - {fileID: 3815954189206336483, guid: 54eba9c24be4c474180c23dcccfd6630, type: 3}
+  - {fileID: -3690502768834906923, guid: 54eba9c24be4c474180c23dcccfd6630, type: 3}
+  - {fileID: -49130668184793455, guid: 54eba9c24be4c474180c23dcccfd6630, type: 3}
+  - {fileID: -2330519403281856691, guid: 54eba9c24be4c474180c23dcccfd6630, type: 3}
   bullet: {fileID: 5596115011501331333, guid: a5986ad6f57dced4eabeadf6079b0ea7, type: 3}
+  items:
+  - {fileID: 1115070561795121379, guid: 9dab67f1c58aa794e8a5723272da5888, type: 3}
+  - {fileID: 2506875694509118125, guid: ec92585a7c9357a4bb88bda0042f8afa, type: 3}
+  - {fileID: 4638182488847877660, guid: a6cffb42cea3a9c4fb63fc3748debd72, type: 3}
 --- !u!114 &6212580380218082993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +170,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
