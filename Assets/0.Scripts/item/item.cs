@@ -12,5 +12,9 @@ public abstract class item : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.down * Time.deltaTime * DownSpeed);
+        if (UI.instance.gameState != GameState.Play)
+        {
+            return;
+        }
     }
 }

@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+public enum GameState
+{
+    Play,
+    Pause,
+    STOP
+}
 public class UI : MonoBehaviour
 {
     // Start is called before the first frame update
     public static UI instance;
     [SerializeField] private Image lifelmg;
     [SerializeField] private TMP_Text scoreTxt;
+    [SerializeField] private GameObject gameover;
     public FixedJoystick joy;
     Player p;
+    public GameState gameState;
     public int Life { get; set; } = 3;
     private int score;
     public int Score
@@ -23,7 +30,7 @@ public class UI : MonoBehaviour
             scoreTxt.text = $"Score:{score}";
         }
     }
-    void Start()
+    void Awake()
     {
         instance = this;
         SetLifeImage();
@@ -46,5 +53,18 @@ public class UI : MonoBehaviour
     {
         float width = 66.6f;
         lifelmg.rectTransform.sizeDelta=new Vector2(width* Life,66.6f);
+    }
+    public void ShowGameOver()
+    {
+        gameover.SetActive(true);
+        gameState = GameState.STOP;
+    }
+    public void OnRetry()
+    {
+        SceneChange.instance.OnGoGame();
+    }
+    public void OnExit()
+    {
+        SceneChange.instance.OnGoLobby();
     }
 }

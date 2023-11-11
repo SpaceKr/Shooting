@@ -20,6 +20,10 @@ public class Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (UI.instance==null||UI.instance.gameState != GameState.Play)
+        {
+            return;
+        }
         foreach (var item in bottom)
         {
             item.transform.Translate(Vector2.down * Time.deltaTime * bottomSpeed);

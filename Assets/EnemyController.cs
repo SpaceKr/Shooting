@@ -41,12 +41,18 @@ public class EnemyController : MonoBehaviour
     }
     void Update()
     {
+        if (UI.instance == null || UI.instance.gameState != GameState.Play)
+        {
+            return;
+        }
         spawnTimer += Time.deltaTime;
         if (spawnTimer > spawnTime)
         {
             spawnTimer = 0;
-            Enemy e = Instantiate(enemys[0], Return_RandomPosition(), Quaternion.identity);
-            e.Speed = 0.6f;
+            int rand = Random.Range(0, 100);
+            int spawnIndex = rand < 70 ? 0 : rand < 90 ? 1 : 2;
+            Enemy e = Instantiate(enemys[spawnIndex], Return_RandomPosition(), Quaternion.identity);
+            
             e.SetPlayer(p);
         }
     }

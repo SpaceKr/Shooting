@@ -11,31 +11,39 @@ public class Player : MonoBehaviour
         Left,
         Right
     }
-    [SerializeField] private SceneChange sc;
+
+    [SerializeField] private GameObject[] bullets;
     [SerializeField] private List<Sprite> normalSprite;
     [SerializeField] private List<Sprite> leftSprite;
     [SerializeField] private List<Sprite> rightSprite;
     [SerializeField] private float speed;
     [SerializeField] private Transform bulletParent;
-    [SerializeField] private PBullet bullet;
     [SerializeField] private float fireBulletDelayTime;
     private Direction dir = Direction.Center;
     private float fireDelayTimer;
+    public int BulletLevel { get; set; } = 1;
     void Start()
     {
-        sc.OnAddUI();
+        SceneChange.instance?.OnAddUI();
         GetComponent<SpriteAnimation>().SetSprite(normalSprite, 0.1f);
+        Invoke("GameStart", 2f);
     }
+    void GameStart() => UI.instance.gameState = GameState.Play;
+
 
     // Update is called once per frame
     void Update()
     {
+        if (UI.instance == null || UI.instance.gameState != GameState.Play)
+        {
+            return;
+        }
         Fire();
 
     }
-    public void Move(float aX,float aY)
+    public void Move(float aX, float aY)
     {
-        float x = aX* Time.deltaTime * speed; ;
+        float x = aX * Time.deltaTime * speed; ;
         float y = aY * Time.deltaTime * speed;
 
         float clampX = Mathf.Clamp(transform.position.x + x, -2.3f, 2.3f);
@@ -67,8 +75,8 @@ public class Player : MonoBehaviour
             if (fireDelayTimer > fireBulletDelayTime)
             {
                 fireDelayTimer = 0;
-                PBullet b = Instantiate(bullet, transform.GetChild(0));
-                b.transform.SetParent(bulletParent);
+                GameObject obj = Instantiate(bullets[BulletLevel-1], transform.GetChild(0));
+                obj.transform.SetParent(bulletParent);
             }
         }
     }
@@ -80,11 +88,40 @@ public class Player : MonoBehaviour
             //Destroy(gameObject);
             UI.instance.Life--;
             UI.instance.SetLifeImage();
+            if (UI.instance.Life <= 0)
+            {
+                UI.instance.ShowGameOver();
+            }
         }
         if (collision.GetComponent<Coin>())
         {
             Destroy(collision.gameObject);
             UI.instance.Score += 10;
+        }
+        if (collision.GetComponent<Power>())
+        {
+            BulletLevel++;
+            if (BulletLevel > bullets.Length){
+                BulletLevel = bullets.Length;
+                Destroy(collision.gameObject);
+            }
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.GetComponent<Enemy>())
+        {
+            Destroy(collision.gameObject);
+            hit();
+        }
+    }
+    void hit()
+    {
+        UI.instance.Life--;
+        UI.instance.SetLifeImage();
+        if (UI.instance.Life <= 0)
+        {
+            UI.instance.ShowGameOver();
         }
     }
 }

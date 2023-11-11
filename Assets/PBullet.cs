@@ -16,5 +16,9 @@ public class PBullet : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * Time.deltaTime * 10f);
+        if (UI.instance.gameState != GameState.Play)
+        {
+            return;
+        }
     }
 }
