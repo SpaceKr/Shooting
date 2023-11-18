@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1174715468566314689}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: firePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8638019108534853847}
   - component: {fileID: 7576680575647630384}
   - component: {fileID: 207768837892765994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

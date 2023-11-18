@@ -15,8 +15,10 @@ public abstract class Enemy : MonoBehaviour
     public int HP { get; set; }
     public int Score { get; set; }
     protected SpriteAnimation sa;
+    protected EnemyController ec;
     float fireDelayTimer;
-    const float fireDelayTime = 0.5f;
+    const float fireDelayTime = 1f;
+    List<EBullet> bullets = new List<EBullet>();
     // Start is called before the first frame update
     
 
@@ -38,6 +40,7 @@ public abstract class Enemy : MonoBehaviour
         {
             fireDelayTimer = 0;
             EBullet b=Instantiate(bullet,firePos);
+            bullets.Add(b);
             b.Speed = 3f;
             b.transform.SetParent(null);
         }
@@ -57,6 +60,10 @@ public abstract class Enemy : MonoBehaviour
         p = player;
 
     }
+    public void SetEnemyController(EnemyController enemyCont)
+    {
+        ec = enemyCont;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
@@ -65,16 +72,18 @@ public abstract class Enemy : MonoBehaviour
             
             Destroy(collision.gameObject);
             Hit((int)collision.GetComponent<PBullet>().Power);
-            if (HP <= 0)
-            {
-                Dead();
-            }
+            
         }
     }
-    void Hit(int damage)
+    public void Hit(int damage)
     {
         HP -= damage;
         GetComponent<SpriteAnimation>().SetSprite(hitSprite, 0.2f, () => GetComponent<SpriteAnimation>().SetSprite(normalSprite, 0.2f));
+        if (HP <= 0)
+        {
+            Dead();
+            BulletDelete();
+        }
     }
     void Dead()
     {
@@ -90,8 +99,21 @@ public abstract class Enemy : MonoBehaviour
             {
                 Instantiate(items[spawnItemIndex], transform.position, Quaternion.identity);
             }
+            ec.DeleteEnemy(this);
             Destroy(gameObject);
         });
 
     }
+    void BulletDelete()
+    {
+        foreach(var item in bullets)
+        {
+            try
+            {
+                Destroy(item.gameObject);
+            }catch (MissingReferenceException e) { }
+        }
+        bullets.Clear();
+    }
+    
 }

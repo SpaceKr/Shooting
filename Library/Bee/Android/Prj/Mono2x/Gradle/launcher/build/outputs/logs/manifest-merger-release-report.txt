@@ -39,13 +39,15 @@ ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\
 	android:anyDensity
 		ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:3:135-160
 application
-ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:3-83
+ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:3-126
 MERGED from [:unityLibrary] C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:26:5-67:19
 MERGED from [:unityLibrary] C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:26:5-67:19
 	android:extractNativeLibs
 		ADDED from [:unityLibrary] C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\library_manifest\release\AndroidManifest.xml:26:18-50
 	android:label
 		ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:16-48
+	android:roundIcon
+		ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:81-123
 	android:icon
 		ADDED from C:\Users\user\Desktop\Shooting\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\AndroidManifest.xml:4:49-80
 uses-sdk

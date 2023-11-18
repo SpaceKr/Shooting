@@ -1,22 +1,23 @@
 ScriptsOnlyBuild:
   usedScripts:
-    Assembly-CSharp-Editor.dll:
-    - ReadmeEditor
     Assembly-CSharp.dll:
     - Background
     - Boom
+    - Boss
     - Coin
     - EBullet
-    - Enemy
+    - Enemy0
+    - Enemy1
+    - Enemy2
     - EnemyController
     - FixedJoystick
     - PBullet
     - Player
     - Power
-    - Readme
     - SceneChange
     - SpriteAnimation
     - UI
+    - Wall
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
     Unity.Rider.Editor.dll:
@@ -77,6 +78,12 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: SceneChange
     methodName: OnGoGame
+  - assembly: Assembly-CSharp
+    fullTypeName: UI
+    methodName: OnExit
+  - assembly: Assembly-CSharp
+    fullTypeName: UI
+    methodName: OnRetry
   sceneClasses:
     Assets/Scenes/Game.unity:
     - Class: 1
@@ -102,25 +109,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1772}
+      Script: {instanceID: 16706}
     - Class: 114
-      Script: {instanceID: 2294}
+      Script: {instanceID: 17224}
     - Class: 114
-      Script: {instanceID: 2408}
+      Script: {instanceID: 17338}
     - Class: 114
-      Script: {instanceID: 2632}
+      Script: {instanceID: 17566}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 17606}
     - Class: 114
-      Script: {instanceID: 3178}
+      Script: {instanceID: 18112}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 18146}
     - Class: 114
-      Script: {instanceID: 3776}
+      Script: {instanceID: 18726}
     - Class: 114
-      Script: {instanceID: 3794}
+      Script: {instanceID: 19302}
     - Class: 114
-      Script: {instanceID: 4366}
+      Script: {instanceID: 19594}
+    - Class: 114
+      Script: {instanceID: 20660}
+    - Class: 114
+      Script: {instanceID: 21672}
+    - Class: 114
+      Script: {instanceID: 51594}
+    - Class: 114
+      Script: {instanceID: 57562}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -151,31 +166,31 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1582}
+      Script: {instanceID: 16514}
     - Class: 114
-      Script: {instanceID: 2138}
+      Script: {instanceID: 17068}
     - Class: 114
-      Script: {instanceID: 2544}
+      Script: {instanceID: 17478}
     - Class: 114
-      Script: {instanceID: 2680}
+      Script: {instanceID: 17614}
     - Class: 114
-      Script: {instanceID: 2736}
+      Script: {instanceID: 17672}
     - Class: 114
-      Script: {instanceID: 3006}
+      Script: {instanceID: 17944}
     - Class: 114
-      Script: {instanceID: 3326}
+      Script: {instanceID: 18256}
     - Class: 114
-      Script: {instanceID: 3960}
+      Script: {instanceID: 18892}
     - Class: 114
-      Script: {instanceID: 4202}
+      Script: {instanceID: 19136}
     - Class: 114
-      Script: {instanceID: 4866}
+      Script: {instanceID: 19802}
     - Class: 114
-      Script: {instanceID: 5386}
+      Script: {instanceID: 20316}
     - Class: 114
-      Script: {instanceID: 5536}
+      Script: {instanceID: 20468}
     - Class: 114
-      Script: {instanceID: 5838}
+      Script: {instanceID: 20774}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -208,25 +223,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1582}
+      Script: {instanceID: 16514}
     - Class: 114
-      Script: {instanceID: 2052}
+      Script: {instanceID: 16982}
     - Class: 114
-      Script: {instanceID: 2544}
+      Script: {instanceID: 17478}
     - Class: 114
-      Script: {instanceID: 2736}
+      Script: {instanceID: 17672}
     - Class: 114
-      Script: {instanceID: 3006}
+      Script: {instanceID: 17944}
     - Class: 114
-      Script: {instanceID: 4866}
+      Script: {instanceID: 19802}
     - Class: 114
-      Script: {instanceID: 5386}
+      Script: {instanceID: 20316}
     - Class: 114
-      Script: {instanceID: 5536}
+      Script: {instanceID: 20468}
     - Class: 114
-      Script: {instanceID: 5838}
+      Script: {instanceID: 20774}
     - Class: 114
-      Script: {instanceID: 6038}
+      Script: {instanceID: 20976}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -288,7 +303,7 @@ ScriptsOnlyBuild:
     className: Shadow
   - hash:
       serializedVersion: 2
-      Hash: 96162480354bb3bd45a925e65695320b
+      Hash: c03e386b00d446d93b46ad4d1276d638
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -342,7 +357,7 @@ ScriptsOnlyBuild:
     className: UnityOnPointerUpMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 91d258529db2b5060a913f2afcea1a21
+      Hash: 4de78781075c75589cdbaad292fb6cff
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
@@ -364,6 +379,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Background
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyBoss
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -534,7 +555,7 @@ ScriptsOnlyBuild:
     className: ContentSizeFitter
   - hash:
       serializedVersion: 2
-      Hash: 7b00f9eb8839d962cd29f91ee0a7e80f
+      Hash: 99e9e3f9b718524fb90a7e9da4abceef
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Boom
@@ -634,12 +655,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
-  - hash:
-      serializedVersion: 2
-      Hash: e82e16a00154e8ed18c3d4a540466af5
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Enemy
   - hash:
       serializedVersion: 2
       Hash: d56f40d0eca1d67ca4280d79dfb0a2c6
@@ -780,6 +795,12 @@ ScriptsOnlyBuild:
     className: DynamicJoystick
   - hash:
       serializedVersion: 2
+      Hash: e82e16a00154e8ed18c3d4a540466af5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy0
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -910,6 +931,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnMouseUpAsButtonMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: e82e16a00154e8ed18c3d4a540466af5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy1
   - hash:
       serializedVersion: 2
       Hash: 9e27f44bbf48228f203a37254d40f8ae
@@ -1068,6 +1095,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: e82e16a00154e8ed18c3d4a540466af5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Enemy2
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1156,9 +1189,21 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Wall
+  - hash:
+      serializedVersion: 2
+      Hash: 61e06836ce86c0413993194d30d9e6f6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Boss
   platform: 13
   scenePathNames:
   - Assets/Scenes/Lobby.unity
   - Assets/Scenes/Game.unity
   - Assets/Scenes/UI.unity
-  playerPath: C:/Users/user/Desktop/MyShooting.apk
+  playerPath: C:/Users/user/Desktop/build/MyShooting.apk
