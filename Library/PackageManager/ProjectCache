@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638358632170378705
-    m_Hash: 2346332727
+      ticks: 638370729844800368
+    m_Hash: 2650541358
   m_LockFileStatus:
     m_FilePath: C:/Users/user/Desktop/Shooting/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638358632212366050
-    m_Hash: 2317871143
+      ticks: 638370729844800368
+    m_Hash: 2647774091
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -511,6 +511,7 @@ m_ResolvedPackages:
     - 1.3.8
     - 1.3.9
     - 1.4.0
+    - 1.4.1
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -527,6 +528,7 @@ m_ResolvedPackages:
     - 1.3.8
     - 1.3.9
     - 1.4.0
+    - 1.4.1
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
